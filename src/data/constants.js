@@ -237,6 +237,25 @@ export const education = [
 
 export const projects = [
   {
+    id: 8,
+    title: "ECommerce Store",
+    date: "Nov 2023",
+    description:
+      "ECommerce Store web application is developed using MERN stack with Braintree Payment gateway integration",
+    image:
+      "https://i.postimg.cc/C5DWVSHH/Screenshot-33.png",
+    tags: [
+     "MERN Stack",
+     "Java Script",
+     "API",
+     "Payment Gateway",
+     "BRAINTREE"
+    ],
+    category: "web app",
+    github: "https://github.com/KishorKumar07/EcommerceStore",
+   
+  },
+  {
     id: 9,
     title: "ChatBot",
     date: "Jul 2023",
