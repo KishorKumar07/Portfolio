@@ -10,7 +10,7 @@ export const Bio = {
     "I am a motivated and versatile individual, always eager to take on new challenges. With a passion for learning I am dedicated to delivering high-quality results. With a positive attitude and a growth mindset, I am ready to make a meaningful contribution and achieve great things.",
   github: "https://github.com/KishorKumar07",
   resume:
-    "https://drive.google.com/file/d/1iPwLHmhx_yzDoPiBBAQx_KWm2v5ahs8F/view?usp=drivesdk",
+    "https://drive.google.com/file/d/1gsIiBu77QJHheww9CRyK5qyGxLgwLveU/view?usp=sharing",
   linkedin: "https://www.linkedin.com/in/kishorkumar07/",
   
 };
@@ -171,7 +171,7 @@ export const experiences = [
   },
   {
     id: 1,
-    img: "https://scontent.fmaa1-3.fna.fbcdn.net/v/t39.30808-6/299969923_575446324367693_3680450790971547508_n.png?_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_ohc=4s_kQAdHWlgAX_n10ax&_nc_ht=scontent.fmaa1-3.fna&oh=00_AfA75fdnVkv3xoNfyKwTN9IXar2i8RYG1VhC039_HW-2UQ&oe=65406EC0",
+    img: "https://media.licdn.com/dms/image/C510BAQGQbIRU8KJPAw/company-logo_200_200/0/1631333028922?e=2147483647&v=beta&t=b-1U2blIPpeHUmXUnYO-73XStaUVxUKPnd9rxosjAiQ",
     role: "Internship (IOT & Web Development)",
     company: "Nandha Infotech",
     date: "July 2022 - Aug 2022",
@@ -188,7 +188,7 @@ export const experiences = [
  
   {
     id: 2,
-    img: "https://media.licdn.com/dms/image/C5603AQGEveXKjma-KQ/profile-displayphoto-shrink_400_400/0/1517890399453?e=1703721600&v=beta&t=shqhU0kCIaiLNjl2dT0BaYqRd7dzhgT1Om2VCJS-3i0",
+    img: "https://media.licdn.com/dms/image/C560BAQEz6W3LZiMx4A/company-logo_200_200/0/1630637028380/ucfer_logo?e=1712188800&v=beta&t=D8Gs39F-fc2hByKrf0LpYt3jvcCEOQYTkXjOfTEIYME",
     role: "Industrial Training (Web Development)",
     company: "Ucfer",
     date: "Dec 2021",
@@ -236,8 +236,48 @@ export const education = [
 ];
 
 export const projects = [
+  
   {
-    id: 8,
+    id: 7,
+    title: "Find Your Job",
+    date: "Jan 2024",
+    description:
+      "A mobile application devloped using React Native based on the concept of finding jobs by using the JSearch API",
+    image:
+      "https://i.postimg.cc/Bb9FmjLV/job.jpg",
+    tags: [
+     "React native",
+     "Java Script",
+     "API",
+     "J Search",
+     "Rapid API"
+    ],
+    category: "mobile app",
+    github: "https://github.com/KishorKumar07/Job",
+   
+  },
+  {
+    id: 6,
+    title: "Weather Forecast",
+    date: "Dec 2023",
+    description:
+    "A mobile application devloped using React Native based on the concept of checking weather conditions in different cities by using the Weather API",
+    image:
+      "https://i.postimg.cc/h41vkyHj/weather.jpg",
+    tags: [
+      "React native",
+     "Java Script",
+     "API",
+     "Weather API"
+    ],
+    category: "mobile app",
+    github: "https://github.com/KishorKumar07/WeatherForecast",
+   
+  },
+  
+  
+  {
+    id: 5,
     title: "ECommerce Store",
     date: "Nov 2023",
     description:
@@ -256,7 +296,7 @@ export const projects = [
    
   },
   {
-    id: 9,
+    id: 4,
     title: "ChatBot",
     date: "Jul 2023",
     description:
@@ -274,7 +314,7 @@ export const projects = [
    
   },
   {
-    id: 0,
+    id: 3,
     title: "Amizh Birth & Yoga ",
     date: "May 2023 - June 2023",
     description:
@@ -288,7 +328,7 @@ export const projects = [
  
   },
   {
-    id: 1,
+    id: 2,
     title: "Customer Care Application",
     date: "Sept 2022 - Oct 2022",
     description:
@@ -308,7 +348,7 @@ export const projects = [
    
   },
   {
-    id: 2,
+    id: 1,
     title: "Mobile Shop Management System ",
     date: "Sept 2021 - Nov 2021",
     description:

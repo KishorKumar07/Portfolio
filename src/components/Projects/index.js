@@ -27,13 +27,19 @@ const Projects = ({openModal,setOpenModal}) => {
             <ToggleButton value="web app" onClick={() => setToggle('web app')}>Web Apps</ToggleButton>
           }
           <Divider />
-          
-          <Divider />
+    
           {toggle === 'Desktop Application' ?
             <ToggleButton active value="Desktop Application" onClick={() => setToggle('Desktop Application')}>Desktop Application</ToggleButton>
             :
             <ToggleButton value="Desktop Application" onClick={() => setToggle('Desktop Application')}>Desktop Application</ToggleButton>
           }
+           <Divider />
+    
+           {toggle === 'mobile app' ?
+           <ToggleButton active value="mobile app" onClick={() => setToggle('mobile app')}>Mobile Application</ToggleButton>
+           :
+           <ToggleButton value="mobile app" onClick={() => setToggle('mobile app')}>Mobile Application</ToggleButton>
+            }
         </ToggleButtonGroup>
         <CardContainer>
           {toggle === 'all' && projects
