@@ -28,12 +28,12 @@ const Projects = ({openModal,setOpenModal}) => {
           }
           <Divider />
     
-          {toggle === 'Desktop Application' ?
+          {/* {toggle === 'Desktop Application' ?
             <ToggleButton active value="Desktop Application" onClick={() => setToggle('Desktop Application')}>Desktop Application</ToggleButton>
             :
             <ToggleButton value="Desktop Application" onClick={() => setToggle('Desktop Application')}>Desktop Application</ToggleButton>
           }
-           <Divider />
+           <Divider /> */}
     
            {toggle === 'mobile app' ?
            <ToggleButton active value="mobile app" onClick={() => setToggle('mobile app')}>Mobile Application</ToggleButton>
