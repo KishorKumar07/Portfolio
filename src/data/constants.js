@@ -10,7 +10,7 @@ export const Bio = {
     "I am a motivated and versatile individual, always eager to take on new challenges. With a passion for learning I am dedicated to delivering high-quality results. With a positive attitude and a growth mindset, I am ready to make a meaningful contribution and achieve great things.",
   github: "https://github.com/KishorKumar07",
   resume:
-    "https://drive.google.com/file/d/1gsIiBu77QJHheww9CRyK5qyGxLgwLveU/view?usp=sharing",
+    "https://drive.google.com/file/d/13oxYNgGNQ3NYMjgt3_p3mAIbbgLGUTBQ/view?usp=drive_link",
   linkedin: "https://www.linkedin.com/in/kishorkumar07/",
   
 };
@@ -149,7 +149,25 @@ export const skills = [
 ];
 
 export const experiences = [
-
+  {
+    id: 3,
+    img: "https://media.licdn.com/dms/image/D560BAQEbFlFcOVXnVw/company-logo_200_200/0/1666586751680?e=2147483647&v=beta&t=Kza_sXlvSGFremKiy8z5MU6dQJlMMI6VaEUfDwsQYGU",
+    role: "Internship (Full Stack Development)",
+    company: "The Reciprocal Solutions",
+    date: "Jan 2024 - Present",
+    desc: "Working on the frontend of the web application using ReactJS, Redux, and Material UI and backend using Node js and Postgres as a database",
+    skills: [
+      "ReactJS",
+      "Redux",
+      "NodeJs",
+      "Material UI",
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Docker",
+      "Postgres",
+    ],
+  },
   {
     id: 0,
     img: "https://lh3.googleusercontent.com/p/AF1QipOXDVhgYi3lEE17ew_3X9638Y7GsoDXrYu_KXTM=s1360-w1360-h1020",
@@ -351,10 +369,4 @@ export const projects = [
  
 ];
 
-export const TimeLineData = [
-  { year: 2017, text: "Started my journey" },
-  { year: 2018, text: "Worked as a freelance developer" },
-  { year: 2019, text: "Founded JavaScript Mastery" },
-  { year: 2020, text: "Shared my projects with the world" },
-  { year: 2021, text: "Started my own platform" },
-];
+
