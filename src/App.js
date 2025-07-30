@@ -14,6 +14,7 @@ import Experience from "./components/Experience";
 import Education from "./components/Education";
 import ProjectDetails from "./components/ProjectDetails";
 import styled from "styled-components";
+import { Toaster } from 'react-hot-toast';
 
 const Body = styled.div`
   background-color: ${({ theme }) => theme.bg};
@@ -50,6 +51,31 @@ function App() {
             <ProjectDetails openModal={openModal} setOpenModal={setOpenModal} />
           }
         </Body>
+        <Toaster 
+          position="top-right"
+          toastOptions={{
+            duration: 4000,
+            style: {
+              background: '#363636',
+              color: '#fff',
+              zIndex: 9999,
+            },
+            success: {
+              duration: 4000,
+              style: {
+                background: '#4caf50',
+                zIndex: 9999,
+              },
+            },
+            error: {
+              duration: 4000,
+              style: {
+                background: '#f44336',
+                zIndex: 9999,
+              },
+            },
+          }}
+        />
       </Router>
     </ThemeProvider>
   );

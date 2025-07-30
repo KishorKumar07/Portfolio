@@ -1,15 +1,14 @@
-import React from 'react'
+import React, { useRef, useState } from "react";
 import styled from 'styled-components'
-import { useRef } from 'react';
-import emailjs from '@emailjs/browser';
-import { Snackbar } from '@mui/material';
+import axios from "axios"; // Make sure to install axios: npm install axios
+import toast from 'react-hot-toast';
 
 const Container = styled.div`
 display: flex;
 flex-direction: column;
 justify-content: center;
 position: relative;
-z-index: 1;
+z-index: 0;
 align-items: center;
 @media (max-width: 960px) {
     padding: 0px;
@@ -87,6 +86,10 @@ const ContactInput = styled.input`
   &:focus {
     border: 1px solid ${({ theme }) => theme.primary};
   }
+  ${({ error }) => error && `
+    border-color: red;
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.3);
+  `}
 `
 
 const ContactInputMessage = styled.textarea`
@@ -101,9 +104,13 @@ const ContactInputMessage = styled.textarea`
   &:focus {
     border: 1px solid ${({ theme }) => theme.primary};
   }
+  ${({ error }) => error && `
+    border-color: red;
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.3);
+  `}
 `
 
-const ContactButton = styled.input`
+const ContactButton = styled.button`
   width: 100%;
   text-decoration: none;
   text-align: center;
@@ -118,28 +125,98 @@ const ContactButton = styled.input`
   color: ${({ theme }) => theme.text_primary};
   font-size: 18px;
   font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
 `
 
-
+const LoadingSpinner = styled.div`
+  width: 16px;
+  height: 16px;
+  border: 2px solid transparent;
+  border-top: 2px solid currentColor;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+`
 
 const Contact = () => {
-
-  //hooks
-  const [open, setOpen] = React.useState(false);
   const form = useRef();
+  const [formData, setFormData] = useState({
+    from_name: "",
+    from_email: "",
+    subject: "",
+    message: "",
+  });
+  const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e) => {
+  // Validation function
+  const validate = () => {
+    const newErrors = {};
+    if (!formData.from_name) newErrors.from_name = "Name is required";
+    if (!formData.from_email) {
+      newErrors.from_email = "Email is required";
+    } else if (!/\S+@\S+\.\S+/.test(formData.from_email)) {
+      newErrors.from_email = "Email is invalid";
+    }
+    if (!formData.subject) newErrors.subject = "Subject is required";
+    if (!formData.message) newErrors.message = "Message is required";
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  // Handle input changes
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  // Handle form submit
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    emailjs.sendForm('service_63ng5cr', 'template_vpj4x1k', form.current, 'oxyfpLHkOqeN04Znj')
-      .then((result) => {
-        setOpen(true);
-        form.current.reset();
-      }, (error) => {
-        console.log(error.text);
-      });
-  }
+    if (!validate()) return;
 
-
+    setLoading(true);
+    try {
+      const response = await axios.post(
+        "https://portfolio-backend-z12p.onrender.com/api/contact/submit",
+        {
+          name: formData.from_name,
+          email: formData.from_email,
+          subject: formData.subject,
+          message: formData.message,
+        }
+      );
+      
+      if (response.data.success) {
+        console.log("Success true");
+        
+        toast.success("Email sent successfully!");
+        setFormData({
+          from_name: "",
+          from_email: "",
+          subject: "",
+          message: "",
+        }); // Clear form
+        setErrors({});
+      }
+    } catch (error) {
+      toast.error("Failed to send message. Please try again later.");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <Container>
@@ -148,22 +225,47 @@ const Contact = () => {
         <Desc>Feel free to reach out to me for any questions or opportunities!</Desc>
         <ContactForm ref={form} onSubmit={handleSubmit}>
           <ContactTitle>Email Me 🚀</ContactTitle>
-          <ContactInput placeholder="Your Email" name="from_email" />
-          <ContactInput placeholder="Your Name" name="from_name" />
-          <ContactInput placeholder="Subject" name="subject" />
-          <ContactInputMessage placeholder="Message" rows="4" name="message" />
-          <ContactButton type="submit" value="Send" />
+          <ContactInput
+            placeholder="Your Email"
+            name="from_email"
+            value={formData.from_email}
+            onChange={handleChange}
+            error={!!errors.from_email}
+          />
+          {errors.from_email && <span style={{ color: "red" }}>{errors.from_email}</span>}
+          <ContactInput
+            placeholder="Your Name"
+            name="from_name"
+            value={formData.from_name}
+            onChange={handleChange}
+            error={!!errors.from_name}
+          />
+          {errors.from_name && <span style={{ color: "red" }}>{errors.from_name}</span>}
+          <ContactInput
+            placeholder="Subject"
+            name="subject"
+            value={formData.subject}
+            onChange={handleChange}
+            error={!!errors.subject}
+          />
+          {errors.subject && <span style={{ color: "red" }}>{errors.subject}</span>}
+          <ContactInputMessage
+            placeholder="Message"
+            rows="4"
+            name="message"
+            value={formData.message}
+            onChange={handleChange}
+            error={!!errors.message}
+          />
+          {errors.message && <span style={{ color: "red" }}>{errors.message}</span>}
+          <ContactButton type="submit" disabled={loading}>
+            {loading && <LoadingSpinner />}
+            {loading ? "Sending..." : "Send"}
+          </ContactButton>
         </ContactForm>
-        <Snackbar
-          open={open}
-          autoHideDuration={6000}
-          onClose={()=>setOpen(false)}
-          message="Email sent successfully!"
-          severity="success"
-        />
       </Wrapper>
     </Container>
-  )
-}
+  );
+};
 
-export default Contact
+export default Contact;
