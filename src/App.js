@@ -13,7 +13,7 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Experience  from "./components/Experience";
 import Education from "./components/Education";
-import ProjectDetails from "./components/ProjectDetails";
+import ProjectDetails  from "./components/ProjectDetails";
 import styled from "styled-components";
 import { Toaster } from 'react-hot-toast';
 
