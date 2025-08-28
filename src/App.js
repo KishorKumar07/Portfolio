@@ -5,7 +5,7 @@ import Navbar from "./components/Navbar";
 import './App.css';
 
 import { BrowserRouter as Router } from 'react-router-dom';
-import HeroSection from "./components/HeroSection";
+import  HeroSection from "./components/HeroSection";
 import About from "./components/About";
 import  Skills  from    "./components/Skills";
 
