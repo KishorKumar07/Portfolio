@@ -9,7 +9,7 @@ import  HeroSection from "./components/HeroSection";
 import About from "./components/About";
 import  Skills  from    "./components/Skills";
 
-import Projects from "./components/Projects";
+import Projects from  "./components/Projects";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Experience  from "./components/Experience";
