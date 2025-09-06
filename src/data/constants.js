@@ -2,9 +2,9 @@ export const Bio = {
   name: "Kishor Kumar",
   
   roles: [
-    "Full Stack Developer ",
-    "App Developer ",
-    "UI/UX Designer " ,
+    "Full Stack Developer",
+    "App Developer",
+    "UI/UX Designer" ,
     
   ],
   description :
@@ -381,6 +381,7 @@ export const projects = [
  
  
 ];
+
 
 
 
