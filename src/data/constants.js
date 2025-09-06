@@ -8,7 +8,7 @@ export const Bio = {
     
   ],
   description :
-    "Full Stack Developer with 1+ years  of experience building scalable web and mobile applications using the MERN stack and TypeScript. Skilled in creating secure, responsive, and AI-integrated SaaS solutions in agile environments.",
+    "Full Stack Developer with 1+ years of experience building scalable web and mobile applications using the MERN stack and TypeScript. Skilled in creating secure, responsive, and AI-integrated SaaS solutions in agile environments.",
   github: "https://github.com/KishorKumar07 ",
   resume:
     "https://drive.google.com/file/d/1-3aLWm-PmCwVAAP3_4loGyhm7atPZjG6/view?usp=sharing",
@@ -381,6 +381,7 @@ export const projects = [
  
  
 ];
+
 
 
 
