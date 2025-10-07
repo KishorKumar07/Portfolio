@@ -4,7 +4,7 @@
   roles: [
     "Full Stack Developer",
     "App Developer",
-    "UI/UX Designer " ,
+    "UI/UX Designer" ,
     
   ],
   description :
@@ -381,6 +381,7 @@ export const projects = [
  
  
 ];
+
 
 
 
